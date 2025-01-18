@@ -15,7 +15,7 @@ body.page-apartment {
 
 /* Back Button */
 .back-button {
-    position: absolute; /* Place it in the header */
+    position: absolute;
     top: 20px;
     left: 20px;
     background-color: #ffffff;
@@ -27,64 +27,11 @@ body.page-apartment {
     border-radius: 5px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-    z-index: 10; /* Ensure it stays above other elements */
+    z-index: 10;
 }
 
 .back-button:hover {
     background-color: #f0f0f0;
-}
-
-/* Hero Section */
-.hero-header {
-    position: relative;
-    width: 100%;
-    height: 12vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-.hero-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-}
-
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-}
-
-.header-content {
-    position: relative;
-    z-index: 3;
-    color: #FFFFFF;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Space between logo and text */
-}
-
-.header-logo {
-    width: 80px; /* Smaller logo size */
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 5px;
-    font-family: 'Rye', cursive;
-}
-
-.hero-header p {
-    font-size: 1.2rem;
-    margin: 0;
 }
 
 /* Main Apartment Page Layout */
@@ -107,14 +54,14 @@ h1 {
     justify-content: center;
     max-width: 100%;
     height: auto;
-    margin: 0 auto; /* Center the container */
+    margin: 0 auto;
     padding: 0;
-    overflow: visible; /* Ensure arrows are not cut off */
+    overflow: visible;
 }
 
 .gallery img {
     max-width: 100%;
-    height: auto; /* Ensure landscape format */
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -134,7 +81,6 @@ h1 {
     align-items: center;
     cursor: pointer;
     z-index: 10;
-    margin: 0; /* Remove extra spacing */
 }
 
 .gallery-arrow.prev {
@@ -229,42 +175,22 @@ h1 {
 /* Apartment Info Section */
 .apartment-info-container {
     display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
+    flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: stretch; /* Make both sections equal height including top alignment */
+    align-items: stretch;
     gap: 20px;
-    margin-bottom: 20px; /* Space below the row */
+    margin-bottom: 20px;
 }
 
 .apartment-info {
     text-align: left;
-    margin: 0; /* Remove vertical margins */
     width: 48%;
-    background: #ffffff; /* Clean white background */
+    background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 25px;
 }
 
-.apartment-info .apartment-name {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin: 0; /* Remove margin completely */
-    color: #40392b;
-}
-
-.apartment-info .location {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.apartment-info .price {
-    font-size: 1.5rem;
-    color: #40392b;
-}
-
-/* Availability Label */
 .availability-label {
     display: inline-block;
     background-color: #ffcc00;
@@ -272,39 +198,17 @@ h1 {
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
-    margin-bottom: 2px; /* Further reduce spacing */
     font-size: 0.9rem;
-}
-
-/* Info Section */
-.info-section {
-    margin: 0px 0 0; /* Adjusted margin to align with Lägenhet 8A */
-    padding: 25px;
-    background: #ffffff; /* Clean white background */
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    width: 48%;
-}
-
-.details {
-    display: flex;
-    flex-direction: column; /* Changed to stack elements */
-    font-size: 1.1rem;
-    gap: 10px; /* Add space between stacked elements */
-}
-
-.details p {
-    margin: 0;
 }
 
 /* Features Section */
 .features {
     padding: 25px;
-    background: #ffffff; /* Clean white background */
+    background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    width: 96%; /* Slightly reduce width to match elements above */
-    margin: 0 auto; /* Center align */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 96%;
+    margin: 0 auto;
 }
 
 .features ul {
@@ -324,11 +228,11 @@ h1 {
 @media (max-width: 768px) {
     .apartment-info-container {
         flex-direction: column;
-        gap: 10px; /* Add some spacing between stacked sections */
+        gap: 10px;
     }
 
     .apartment-info, .info-section, .features {
-        width: 90%; /* Set width to 90% */
-        margin: 0 auto; /* Center align */
+        width: 90%;
+        margin: 0 auto;
     }
 }
