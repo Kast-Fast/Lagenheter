@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style-apartment.css">
+    <link rel="stylesheet" href="../hero-banner.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <title>Lägenhet 8A</title>
+</head>
+<body class="page-apartment">
+
+    <!-- Header -->
+    <header class="hero-header">
+        <div class="overlay"></div>
+        <img src="../images/hero-background.JPG" alt="Hero Bakgrund" class="hero-image">
+        <div class="header-content">
+            <a href="../index.html">
+                <img src="../images/logo.svg" alt="Logga" class="header-logo">
+            </a>
+            <h1>Lägenhet 8A</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="apartment-page">
+        <!-- Back Button -->
+        <a href="../kastanjegarden.html" class="back-button">⟵ Kastanjegården </a>
+
+        <!-- Gallery Section -->
+        <section class="gallery">
+            <div class="gallery-container">
+                <button class="gallery-arrow prev" onclick="prevImage()">&#8249;</button>
+                <img src="https://picsum.photos/800/400" alt="Bild 1" id="gallery-main-image">
+                <button class="gallery-arrow next" onclick="nextImage()">&#8250;</button>
+            </div>
+            <div class="gallery-controls">
+                <button class="fullscreen-button" onclick="openFullscreenGallery()">Visa alla bilder</button>
+                <button class="fullscreen-button" onclick="openFullscreenPlan()">Visa planlösning</button>
+            </div>
+            <div class="gallery-indicators" id="gallery-indicators">
+                <!-- Indicators will be generated dynamically -->
+            </div>
+        </section>
+
+        <!-- Apartment Info and Details -->
+        <div class="apartment-info-container">
+            <div class="apartment-info">
+                <label class="availability-label">Tillgänglig för uthyrning</label>
+                <p class="apartment-name">Lägenhet 8A</p>
+                <p class="location">Kastanjegården, Staffanstorp, 23354</p>
+                <p class="price">14.544kr / månad</p>
+            </div>
+            <section class="info-section">
+                <h2>Egenskaper</h2>
+                <div class="details">
+                    <p><strong>Storlek:</strong> 95 kvm</p>
+                    <p><strong>Antal rum:</strong> 3</p>
+                    <p><strong>Våning:</strong> 1 av 3</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2>Funktioner</h2>
+            <ul>
+                <li>Diskmaskin</li>
+                <li>Kylskåp</li>
+                <li>Frys</li>
+                <li>Tvättmaskin</li>
+                <li>Torktumlare</li>
+                <li>Mikrovågsugn</li>
+                <li>Dusch</li>
+                <li>Fiber internet</li>
+            </ul>
+        </section>
+
+        <!-- Additional Info Section -->
+        <section class="features">
+            <h2>Övrig info</h2>
+            <ul>
+                <li><strong>Kontraktstyp:</strong> Tillsvidarekontrakt</li>
+                <li><strong>Boende:</strong> Vanligt boende</li>
+                <li><strong>Visning:</strong> Ja, obligatorisk visning</li>
+            </ul>
+        </section>
+    </main>
+
+    <div id="fullscreen-overlay" class="fullscreen-overlay" onclick="closeFullscreenOutside(event)">
+        <div class="fullscreen-content-container">
+            <button class="close-button" onclick="closeFullscreen()">&times;</button>
+            <div id="fullscreen-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            "https://picsum.photos/800/400?random=1",
+            "https://picsum.photos/800/400?random=2",
+            "https://picsum.photos/800/400?random=3",
+            "https://picsum.photos/800/400?random=4",
+        ];
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const mainImage = document.getElementById("gallery-main-image");
+            const indicators = document.querySelectorAll(".gallery-indicators span");
+            mainImage.src = images[index];
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle("active", i === index);
+            });
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function generateIndicators() {
+            const indicatorsContainer = document.getElementById("gallery-indicators");
+            indicatorsContainer.innerHTML = "";
+            images.forEach((_, index) => {
+                const span = document.createElement("span");
+                span.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    currentIndex = index;
+                    showImage(currentIndex);
+                });
+                indicatorsContainer.appendChild(span);
+            });
+            showImage(currentIndex);
+        }
+
+        function openFullscreenGallery() {
+            const overlay = document.getElementById("fullscreen-overlay");
+            const content = document.getElementById("fullscreen-content");
+            content.innerHTML = images.map(img => `<img src="${img}">`).join("");
+            overlay.style.display = "flex";
+        }
+
+        function openFullscreenPlan() {
+            const overlay = document.getElementById("fullscreen-overlay");
+            const content = document.getElementById("fullscreen-content");
+            const planImage = "https://picsum.photos/800/400?random=5"; // Replace with actual plan image URL
+            content.innerHTML = `<img src="${planImage}">`;
+            overlay.style.display = "flex";
+        }
+
+        function closeFullscreen() {
+            const overlay = document.getElementById("fullscreen-overlay");
+            overlay.style.display = "none";
+        }
+
+        function closeFullscreenOutside(event) {
+            const overlay = document.getElementById("fullscreen-overlay");
+            const contentContainer = document.querySelector(".fullscreen-content-container");
+            if (event.target === overlay || event.target === contentContainer) {
+                overlay.style.display = "none";
+            }
+        }
+
+        // Initialize gallery
+        generateIndicators();
+    </script>
+</body>
+</html>
