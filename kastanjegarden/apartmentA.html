@@ -3,104 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KastFast fastigheter</title>
     <link rel="stylesheet" href="../style-apartment.css">
-    <link rel="stylesheet" href="../hero-banner.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
-        <title>KastFast fastigheter</title>
-  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
 </head>
 <body class="page-apartment">
 
-    <!-- Header -->
-    <header class="hero-header">
-        <div class="overlay"></div>
-        <img src="../images/hero-background.png" alt="Hero Bakgrund" class="hero-image">
-        <div class="header-content">
-            <a href="../index.html">
-                <img src="../images/logo.svg" alt="Logga" class="header-logo">
-            </a>
-            <h1>Lägenhet 8A</h1>
+    <!-- Simple Brown Header -->
+    <header class="simple-header">Lägenhet 8A</header>
+    
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="gallery-container">
+            <button class="gallery-arrow prev" onclick="prevImage()">&#8249;</button>
+            <img src="https://picsum.photos/800/400?random=1" alt="Lägenhetsbild" id="gallery-main-image">
+            <button class="gallery-arrow next" onclick="nextImage()">&#8250;</button>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="apartment-page">
-        <!-- Back Button -->
-        <a href="../kastanjegarden.html" class="back-button">⟵ Kastanjegården </a>
-
-        <!-- Gallery Section -->
-        <section class="gallery">
-            <div class="gallery-container">
-                <button class="gallery-arrow prev" onclick="prevImage()">&#8249;</button>
-                <img src="https://picsum.photos/800/400" alt="Bild 1" id="gallery-main-image">
-                <button class="gallery-arrow next" onclick="nextImage()">&#8250;</button>
-            </div>
-            <div class="gallery-controls">
-                <button class="fullscreen-button" onclick="openFullscreenGallery()">Visa alla bilder</button>
-                <button class="fullscreen-button" onclick="openFullscreenPlan()">Visa planlösning</button>
-            </div>
-            <div class="gallery-indicators" id="gallery-indicators">
-                <!-- Indicators will be generated dynamically -->
-            </div>
-        </section>
-
-        <!-- Apartment Info and Details -->
-        <div class="apartment-info-container">
-            <div class="apartment-info">
-                <label class="availability-label">Tillgänglig för uthyrning</label>
-                <p class="apartment-name">Lägenhet 8A</p>
-                <p class="location">Kastanjegården, Staffanstorp, 23354</p>
-                <p class="price">14.544kr / månad</p>
-            </div>
-            <section class="info-section">
-                <h2>Egenskaper</h2>
-                <div class="details">
-                    <p><strong>Storlek:</strong> 95 kvm</p>
-                    <p><strong>Antal rum:</strong> 3</p>
-                    <p><strong>Våning:</strong> 1 av 3</p>
-                </div>
-            </section>
+        <div class="gallery-indicators" id="gallery-indicators"></div>
+        
+        <!-- Buttons for fullscreen gallery and floor plan -->
+        <div class="button-container">
+            <button class="fullscreen-button" onclick="openFullscreenGallery()">Visa alla bilder</button>
+            <button class="floorplan-button" onclick="showFloorPlan()">Visa planlösning</button>
         </div>
+    </section>
 
-        <!-- Features Section -->
-        <section class="features">
-            <h2>Funktioner</h2>
-            <ul>
-                <li>Diskmaskin</li>
-                <li>Kylskåp</li>
-                <li>Frys</li>
-                <li>Tvättmaskin</li>
-                <li>Torktumlare</li>
-                <li>Mikrovågsugn</li>
-                <li>Dusch</li>
-                <li>Fiber internet</li>
-            </ul>
-        </section>
+    <!-- New Information Section -->
+    <section class="additional-info">
+        <h2>Kastanjegården, Staffanstorp</h2>
+        <h1>Görslövsvägen 2</h1>
+        
+        <ul class="apartment-details">
+            <li><strong>Hyra:</strong> 14.000 kr</li>
+            <li><strong>Antal rum:</strong> 3</li>
+            <li><strong>Storlek:</strong> 75 m²</li>
+            <li><strong>Inflyttningsdatum:</strong> Omgående</li>
+            <li><strong>Boendetyp:</strong> Vanligt boende</li>
+        </ul>
+    </section>
 
-        <!-- Additional Info Section -->
-        <section class="features">
-            <h2>Övrig info</h2>
-            <ul>
-                <li><strong>Kontraktstyp:</strong> Tillsvidarekontrakt</li>
-                <li><strong>Boende:</strong> Vanligt boende</li>
-                <li><strong>Visning:</strong> Ja, obligatorisk visning</li>
-            </ul>
-        </section>
-    </main>
+    <!-- New Features Section -->
+    <section class="apartment-features">
+        <h2>Egenskaper</h2>
+        <ul class="features-list">
+            <li><strong>Våning i fasigheten:</strong> 2 av 2</li>
+            <li><strong>Balkong/uteplats:</strong> Nej</li>
+            <li><strong>Hiss:</strong> Nej</li>
+        </ul>
+    </section>
 
-    <div id="fullscreen-overlay" class="fullscreen-overlay" onclick="closeFullscreenOutside(event)">
-        <div class="fullscreen-content-container">
-            <button class="close-button" onclick="closeFullscreen()">&times;</button>
-            <div id="fullscreen-content"></div>
+    <!-- Features Section -->
+    <section class="apartment-features">
+        <h2>Funktioner</h2>
+        <div class="features-grid">
+            <div class="feature-item">Diskmaskin</div>
+            <div class="feature-item">Kylskåp</div>
+            <div class="feature-item">Frys</div>
+            <div class="feature-item">Tvättmaskin</div>
+            <div class="feature-item">Torktumlare</div>
+            <div class="feature-item">Mikrovågsugn</div>
+            <div class="feature-item">Dusch</div>
+            <div class="feature-item">Fiber internet</div>
         </div>
-    </div>
+    </section>
+
+     <!-- Google Maps Section (Hitta hit) -->
+    <section class="google-maps">
+        <h2>Hitta hit</h2>
+        <!-- Image of the location with a link to Google Maps -->
+        <a href="https://www.google.com/maps/place/G%C3%B6rsl%C3%B6vsv%C3%A4gen+2,+245+93+Staffanstorp/@55.6317952,13.1355597,18z/data=!4m6!3m5!1s0x4653a27fe91859f1:0x219fed493003dee8!8m2!3d55.6322268!4d13.1371744!16s%2Fg%2F11c252t3nj?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+            <img src="../images/kastkarta.png" alt="Karta över Lägenheten">
+        </a>
+    </section>
 
     <script>
         const images = [
             "https://picsum.photos/800/400?random=1",
             "https://picsum.photos/800/400?random=2",
             "https://picsum.photos/800/400?random=3",
-            "https://picsum.photos/800/400?random=4",
+            "https://picsum.photos/800/400?random=4"
         ];
         let currentIndex = 0;
 
@@ -128,8 +108,7 @@
             indicatorsContainer.innerHTML = "";
             images.forEach((_, index) => {
                 const span = document.createElement("span");
-                span.addEventListener("click", (e) => {
-                    e.stopPropagation();
+                span.addEventListener("click", () => {
                     currentIndex = index;
                     showImage(currentIndex);
                 });
@@ -139,35 +118,15 @@
         }
 
         function openFullscreenGallery() {
-            const overlay = document.getElementById("fullscreen-overlay");
-            const content = document.getElementById("fullscreen-content");
-            content.innerHTML = images.map(img => `<img src="${img}">`).join("");
-            overlay.style.display = "flex";
+            alert("Öppnar bildgalleri...");
         }
 
-        function openFullscreenPlan() {
-            const overlay = document.getElementById("fullscreen-overlay");
-            const content = document.getElementById("fullscreen-content");
-            const planImage = "https://picsum.photos/800/400?random=5"; // Replace with actual plan image URL
-            content.innerHTML = `<img src="${planImage}">`;
-            overlay.style.display = "flex";
-        }
-
-        function closeFullscreen() {
-            const overlay = document.getElementById("fullscreen-overlay");
-            overlay.style.display = "none";
-        }
-
-        function closeFullscreenOutside(event) {
-            const overlay = document.getElementById("fullscreen-overlay");
-            const contentContainer = document.querySelector(".fullscreen-content-container");
-            if (event.target === overlay || event.target === contentContainer) {
-                overlay.style.display = "none";
-            }
+        function showFloorPlan() {
+            alert("Visar planlösning...");
         }
 
         // Initialize gallery
-        generateIndicators();
+        window.onload = generateIndicators;
     </script>
 </body>
 </html>
