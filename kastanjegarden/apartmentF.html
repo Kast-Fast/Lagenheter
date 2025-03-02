@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KastFast Fastigheter</title>
+  <link rel="stylesheet" href="../style-apartment.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+</head>
+<body class="page-apartment">
+
+  <header class="simple-header">
+    <div class="header-left">
+      <img src="../images/logo.png" alt="Logo" class="logo">
+      <span class="header-text">KastFast</span>
+    </div>
+    <div class="hamburger-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <section class="gallery">
+    <div class="gallery-container">
+      <button class="gallery-arrow prev" onclick="prevImage()">&#8249;</button>
+      <img src="" alt="Lägenhetsbild" id="gallery-main-image">
+      <button class="gallery-arrow next" onclick="nextImage()">&#8250;</button>
+    </div>
+    <div class="gallery-indicators" id="gallery-indicators"></div>
+    <div class="button-container">
+      <button class="fullscreen-button" onclick="openFullscreenGallery()">Bilder</button>
+      <button class="floorplan-button" onclick="openFloorPlan()">Planritning</button>
+    </div>
+  </section>
+
+  <section class="additional-info">
+    <h2>Kastanjegården, Staffanstorp</h2>
+    <h1>Görslövsvägen 2</h1>
+    <ul class="apartment-details">
+      <li><strong>Hyra:</strong> 14.000 kr</li>
+      <li><strong>Antal rum:</strong> 3</li>
+      <li><strong>Storlek:</strong> 75 m²</li>
+      <li><strong>Inflyttningsdatum:</strong> Omgående</li>
+      <li><strong>Boendetyp:</strong> Vanligt boende</li>
+    </ul>
+  </section>
+
+  <section class="apartment-features">
+    <h2>Egenskaper</h2>
+    <ul class="features-list">
+      <li><strong>Våning i fastigheten:</strong> 2 av 2</li>
+      <li><strong>Balkong/uteplats:</strong> Nej</li>
+      <li><strong>Hiss:</strong> Nej</li>
+    </ul>
+  </section>
+
+  <section class="google-maps">
+    <h2>Hitta hit</h2>
+    <a href="https://www.google.com/maps/place/G%C3%B6rsl%C3%B6vsv%C3%A4gen+2,+245+93+Staffanstorp/@55.6317952,13.1355597,18z/data=!4m6!3m5!1s0x4653a27fe91859f1:0x219fed493003dee8!8m2!3d55.6322268!4d13.1371744" target="_blank">
+      <img src="../images/kastkarta.png" alt="Karta över Lägenheten">
+    </a>
+  </section>
+
+  <div id="fullscreen-gallery-modal" class="modal">
+    <span class="close-modal" onclick="closeFullscreenGallery()">&times;</span>
+    <div class="modal-content">
+      <div id="modal-image-list"></div>
+    </div>
+  </div>
+
+  <div id="floorplan-modal" class="modal">
+    <span class="close-modal" onclick="closeFloorPlan()">&times;</span>
+    <div class="modal-content">
+      <img src="" alt="Planlösning" id="floorplan-image" class="modal-image">
+    </div>
+  </div>
+
+  <script>
+    const galleryImages = [
+      "../images/kast-bilder/lagenhetf/1.jpg",
+      "../images/kast-bilder/lagenhetf/2.jpg",
+      "../images/kast-bilder/lagenhetf/3.jpg",
+      "../images/kast-bilder/lagenhetf/4.jpg",
+      "../images/kast-bilder/lagenhetf/5.jpg",
+      "../images/kast-bilder/lagenhetf/6.jpg",
+      "../images/kast-bilder/lagenhetf/7.jpg"
+    ];
+
+    const fullscreenImages = [
+      "../images/kast-bilder/lagenhetf/1.jpg",
+      "../images/kast-bilder/lagenhetf/2.jpg",
+      "../images/kast-bilder/lagenhetf/3.jpg",
+      "../images/kast-bilder/lagenhetf/4.jpg",
+      "../images/kast-bilder/lagenhetf/5.jpg",
+      "../images/kast-bilder/lagenhetf/6.jpg",
+      "../images/kast-bilder/lagenhetf/7.jpg",
+      "../images/kast-bilder/lagenhetf/8.png"
+    ];
+
+    const floorPlanImage = "../images/kast-bilder/lagenhetf/8.png";
+    let currentIndex = 0;
+
+    function showImage(index) {
+      const mainImage = document.getElementById("gallery-main-image");
+      const indicators = document.querySelectorAll(".gallery-indicators span");
+      mainImage.src = galleryImages[index];
+      indicators.forEach((indicator, i) => {
+        indicator.classList.toggle("active", i === index);
+      });
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      showImage(currentIndex);
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      showImage(currentIndex);
+    }
+
+    function generateIndicators() {
+      const indicatorsContainer = document.getElementById("gallery-indicators");
+      indicatorsContainer.innerHTML = "";
+      galleryImages.forEach((_, index) => {
+        const span = document.createElement("span");
+        span.addEventListener("click", () => {
+          currentIndex = index;
+          showImage(currentIndex);
+        });
+        indicatorsContainer.appendChild(span);
+      });
+      showImage(currentIndex);
+    }
+
+    function openFullscreenGallery() {
+      const modal = document.getElementById("fullscreen-gallery-modal");
+      const modalImageList = document.getElementById("modal-image-list");
+      modalImageList.innerHTML = "";
+      fullscreenImages.forEach((imageUrl) => {
+        const img = document.createElement("img");
+        img.src = imageUrl;
+        img.alt = "Fullscreen Image";
+        img.classList.add("modal-image");
+        modalImageList.appendChild(img);
+      });
+      modal.style.display = "block";
+    }
+
+    function closeFullscreenGallery() {
+      document.getElementById("fullscreen-gallery-modal").style.display = "none";
+    }
+
+    function openFloorPlan() {
+      const modal = document.getElementById("floorplan-modal");
+      const floorplanImg = document.getElementById("floorplan-image");
+      floorplanImg.src = floorPlanImage;
+      modal.style.display = "block";
+    }
+
+    function closeFloorPlan() {
+      document.getElementById("floorplan-modal").style.display = "none";
+    }
+
+    window.onload = () => {
+      generateIndicators();
+      const mainImage = document.getElementById("gallery-main-image");
+      mainImage.addEventListener("click", openFullscreenGallery);
+    };
+  </script>
+</body>
+</html>
 
