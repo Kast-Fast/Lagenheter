@@ -23,7 +23,7 @@
   </header>
 
   <section class="gallery">
-    <div class="gallery-container">
+    <div class="gallery-container" id="gallery-container">
       <button class="gallery-arrow prev" onclick="prevImage()">&#8249;</button>
       <img src="" alt="Lägenhetsbild" id="gallery-main-image">
       <button class="gallery-arrow next" onclick="nextImage()">&#8250;</button>
@@ -51,16 +51,22 @@
     <h2>Egenskaper</h2>
     <ul class="features-list">
       <li><strong>Våning i fastigheten:</strong> 2 och 3</li>
-      <li><strong>Balkong/uteplats: </strong>Gemensam uteplats</li>
+      <li><strong>Balkong/uteplats:</strong> Gemensam uteplats</li>
       <li><strong>Hiss:</strong> Nej</li>
     </ul>
   </section>
 
   <section class="google-maps">
     <h2>Hitta hit</h2>
-    <a href="https://maps.app.goo.gl/WMn714N7n8aF5ivs8" target="_blank">
-      <img src="../images/kast-bilder/lagenhetf/karta.png" alt="Karta över Lägenheten">
-    </a>
+    <div class="map-responsive">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d667.9125944919433!2d13.1368375!3d55.6319351!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4653a27fea5b627f%3A0xf863f1832dfbe2d9!2sKastanjeg%C3%A5rden%202F%2C%20245%2093%20Staffanstorp!5e1!3m2!1ssv!2sse!4v1740927599648!5m2!1ssv!2sse" 
+              width="600" 
+              height="450" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </section>
 
   <div id="fullscreen-gallery-modal" class="modal">
@@ -87,7 +93,6 @@
       "../images/kast-bilder/lagenhetf/6.jpg",
       "../images/kast-bilder/lagenhetf/7.jpg"
     ];
-
     const fullscreenImages = [
       "../images/kast-bilder/lagenhetf/1.jpg",
       "../images/kast-bilder/lagenhetf/2.jpg",
@@ -98,7 +103,6 @@
       "../images/kast-bilder/lagenhetf/7.jpg",
       "../images/kast-bilder/lagenhetf/8.png"
     ];
-
     const floorPlanImage = "../images/kast-bilder/lagenhetf/8.png";
     let currentIndex = 0;
     let touchStartX = 0, touchEndX = 0;
@@ -168,19 +172,19 @@
     
     window.onload = () => {
       generateIndicators();
-      const mainImage = document.getElementById("gallery-main-image");
-      mainImage.addEventListener("click", openFullscreenGallery);
-      // Swipe functionality for mobile
-      mainImage.addEventListener("touchstart", e => {
-        touchStartX = e.changedTouches[0].screenX;
+      const galleryContainer = document.getElementById("gallery-container");
+      galleryContainer.addEventListener("touchstart", e => {
+        touchStartX = e.changedTouches[0].clientX;
       });
-      mainImage.addEventListener("touchend", e => {
-        touchEndX = e.changedTouches[0].screenX;
+      galleryContainer.addEventListener("touchend", e => {
+        touchEndX = e.changedTouches[0].clientX;
         const diff = touchEndX - touchStartX;
-        if (Math.abs(diff) > swipeThreshold) {
+        if(Math.abs(diff) > swipeThreshold) {
           diff > 0 ? prevImage() : nextImage();
         }
       });
+      const mainImage = document.getElementById("gallery-main-image");
+      mainImage.addEventListener("click", openFullscreenGallery);
     };
   </script>
 </body>
