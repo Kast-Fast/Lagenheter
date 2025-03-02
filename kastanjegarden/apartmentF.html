@@ -43,7 +43,7 @@
       <li><strong>Antal rum:</strong> 2.5</li>
       <li><strong>Storlek:</strong> 78 m²</li>
       <li><strong>Inflyttningsdatum:</strong> Omgående</li>
-    <li><strong>Boendetyp:</strong> Hyresrätt</li>
+      <li><strong>Boendetyp:</strong> Hyresrätt</li>
     </ul>
   </section>
 
@@ -101,7 +101,9 @@
 
     const floorPlanImage = "../images/kast-bilder/lagenhetf/8.png";
     let currentIndex = 0;
-
+    let touchStartX = 0, touchEndX = 0;
+    const swipeThreshold = 50;
+    
     function showImage(index) {
       const mainImage = document.getElementById("gallery-main-image");
       const indicators = document.querySelectorAll(".gallery-indicators span");
@@ -110,17 +112,17 @@
         indicator.classList.toggle("active", i === index);
       });
     }
-
+    
     function prevImage() {
       currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
       showImage(currentIndex);
     }
-
+    
     function nextImage() {
       currentIndex = (currentIndex + 1) % galleryImages.length;
       showImage(currentIndex);
     }
-
+    
     function generateIndicators() {
       const indicatorsContainer = document.getElementById("gallery-indicators");
       indicatorsContainer.innerHTML = "";
@@ -134,7 +136,7 @@
       });
       showImage(currentIndex);
     }
-
+    
     function openFullscreenGallery() {
       const modal = document.getElementById("fullscreen-gallery-modal");
       const modalImageList = document.getElementById("modal-image-list");
@@ -148,26 +150,37 @@
       });
       modal.style.display = "block";
     }
-
+    
     function closeFullscreenGallery() {
       document.getElementById("fullscreen-gallery-modal").style.display = "none";
     }
-
+    
     function openFloorPlan() {
       const modal = document.getElementById("floorplan-modal");
       const floorplanImg = document.getElementById("floorplan-image");
       floorplanImg.src = floorPlanImage;
       modal.style.display = "block";
     }
-
+    
     function closeFloorPlan() {
       document.getElementById("floorplan-modal").style.display = "none";
     }
-
+    
     window.onload = () => {
       generateIndicators();
       const mainImage = document.getElementById("gallery-main-image");
       mainImage.addEventListener("click", openFullscreenGallery);
+      // Swipe functionality for mobile
+      mainImage.addEventListener("touchstart", e => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+      mainImage.addEventListener("touchend", e => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+        if (Math.abs(diff) > swipeThreshold) {
+          diff > 0 ? prevImage() : nextImage();
+        }
+      });
     };
   </script>
 </body>
