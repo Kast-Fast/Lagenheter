@@ -285,7 +285,7 @@ body {
   }
 }
 
-/* Modal Styles */
+/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -344,7 +344,7 @@ body {
 .modal-image {
   width: 100%;
   height: auto;
-  border-radius: 0; /* Ingen rundning i fullscreen */
+  border-radius: 10px;
 }
 
 @media (max-width: 767px) {
