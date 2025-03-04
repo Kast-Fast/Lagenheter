@@ -161,41 +161,29 @@ body {
   margin-top: 15px;
 }
 
-/* Additional Info */
-.additional-info {
-  background-color: white;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* Apartment Features */
-.apartment-features {
-  background-color: white;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
+/* Box Headings (Enhetlig stil för alla 3 boxar) */
+.apartment-description h1,
 .additional-info h1,
-.additional-info h2,
-.apartment-features h2 {
+.apartment-features h1 {
+  font-size: 1.5em;
   color: black;
   margin-bottom: 10px;
 }
 
-.additional-info h1 {
-  font-size: 1.75em;
+/* Boxarnas grundläggande styling (nu smalare) */
+/* Justera 'margin: 20px auto;' för att ändra det vertikala mellanrummet */
+.apartment-description,
+.additional-info,
+.apartment-features {
+  background-color: white;
+  padding: 20px;
+  max-width: 400px;  /* Ändrad bredd (tidigare 600px) */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
-.additional-info h2 {
-  font-size: 1.25em;
-}
-
+/* Listor */
 .apartment-details,
 .features-list {
   list-style: none;
@@ -254,7 +242,6 @@ body {
   border-radius: 10px;
 }
 
-/* Responsive Google Maps Heading */
 @media (max-width: 767px) {
   .google-maps h2 {
     text-align: left;
@@ -272,35 +259,6 @@ body {
     right: auto;
     left: 50%;
     transform: translateX(-50%);
-  }
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-  .google-maps {
-    margin: 20px auto;
-    text-align: center;
-  }
-  .google-maps h2 {
-    text-align: center;
-  }
-  .google-maps a {
-    display: block;
-    margin: 0 auto;
-  }
-  body {
-    text-align: center;
-  }
-  .additional-info,
-  .apartment-features {
-    display: inline-block;
-    width: 48%;
-    vertical-align: top;
-    margin: 20px 1%;
-    text-align: left;
-  }
-  .header-left {
-    margin-left: 150px;
   }
 }
 
@@ -383,5 +341,42 @@ body {
     right: auto;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+
+/* Layout för boxarna */
+/* På mobil staplas boxarna centrerat med max-width 400px */
+.apartment-layout {
+  display: block;
+  width: 95%;
+  margin: 20px auto;
+}
+
+/* På desktop: två kolumner med boxar med fast bredd 400px */
+/* Justera gap mellan kolumnerna och mellan boxarna i info-features */
+@media (min-width: 1024px) {
+     
+     .header-left {
+    margin-left: 250px; /* Justera värdet efter önskemål */
+  }
+  .apartment-layout {
+    display: flex;
+    justify-content: center;
+    gap: 20px;  /* Ändra detta värde för att minska horisontellt mellanrum */
+  }
+  .apartment-description,
+  .apartment-info-features {
+    width: 400px;
+  }
+  .apartment-info-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;  /* Ändra detta värde för att minska vertikalt mellan info- och egenskapsboxarna */
+  }
+  /* Säkerställ att de inre boxarna behåller sin bredd */
+  .additional-info,
+  .apartment-features {
+    width: 400px;
+    margin: 0 auto;
   }
 }
