@@ -39,13 +39,52 @@ p{margin:0 0 12px;color:var(--sub);line-height:1.75}
 .tile img{aspect-ratio:4/3;object-fit:cover}
 .tile .meta{padding:12px;display:flex;justify-content:space-between;align-items:center}
 
-/* Hero background video */
-.hero-video{position:relative;height:min(60vh,520px);min-height:320px;overflow:hidden;border-bottom:1px solid var(--line)}
-.hero-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
-.hero-video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.45));}
-.hero-video .inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;text-align:center;color:#fff;padding:24px}
-.hero-video h1{color:#fff;letter-spacing:.5px}
-.hero-video p{color:#e2e8f0;max-width:900px;margin:8px auto 0}
+/* Hero (video + bild) */
+.hero-video{
+  position:relative;
+  height:clamp(340px,60vh,560px);
+  min-height:320px;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero-video video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+}
+
+.hero-image{
+  position:relative;
+  height:clamp(340px,60vh,560px);
+  min-height:320px;
+  overflow:hidden;
+}
+.hero-image img{
+  position:absolute; inset:0;
+  width:100%; height:100% !important;
+  object-fit:cover; display:block;
+}
+
+.hero-video .inner, .hero-image .inner{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; text-align:center; padding:0 16px;
+  color:#fff;
+}
+
+/* Borttagen tint */
+.hero-video::after, .hero-image::after{
+  content:none;
+}
+
+.hero-video h1, .hero-image h1{
+  color:#ffffff; letter-spacing:.5px;
+  text-shadow:0 2px 4px rgba(0,0,0,0.5);
+}
+.hero-video p, .hero-image p{
+  color:#ffffff; max-width:900px; margin:8px auto 0;
+  text-shadow:0 2px 4px rgba(0,0,0,0.5);
+}
 
 /* Breadcrumbs */
 .crumbs{font-size:12px;color:var(--sub);display:flex;gap:6px;margin:8px 0 12px}
@@ -58,7 +97,7 @@ p{margin:0 0 12px;color:var(--sub);line-height:1.75}
 .gallery a img{width:100%;height:110px;object-fit:cover;border:1px solid var(--line);border-radius:12px}
 @media(min-width:640px){.gallery a img{height:140px}}
 
-/* Galleri thumbnails inside #galleri */
+/* Säkra thumbnails i galleriet */
 #galleri .gallery img{
   width:100%;
   height:110px !important;
@@ -70,8 +109,8 @@ p{margin:0 0 12px;color:var(--sub);line-height:1.75}
   #galleri .gallery img{height:140px !important;}
 }
 
-/* Fullscreen scrollable lightbox */
-.fs-overlay{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;flex-direction:column;overflow-y:auto;z-index:9999}
+/* Fullscreen overlay – skrollbar */
+.fs-overlay{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;flex-direction:column;overflow-y:auto;z-index:9999;-webkit-overflow-scrolling:touch}
 .fs-overlay.open{display:flex}
 .fs-body{padding:8px 8px 40px;display:grid;gap:8px}
 .fs-item{position:relative;overflow:hidden;border-radius:10px;background:#000}
@@ -79,9 +118,8 @@ p{margin:0 0 12px;color:var(--sub);line-height:1.75}
 @media(min-width:768px){
   .fs-body{padding:16px 16px 60px;max-width:1200px;margin:0 auto}
 }
-footer{border-top:1px solid var(--line);color:var(--sub);padding:16px 0;margin-top:20px}
 
-/* Läs mer button */
+/* Läs mer-knapp */
 .btn-readmore{
   margin-top:8px; display:inline-flex; align-items:center; gap:8px;
   font-weight:700; border:1px solid var(--line); background:#fff;
@@ -93,20 +131,16 @@ footer{border-top:1px solid var(--line);color:var(--sub);padding:16px 0;margin-t
 .btn-readmore[aria-expanded="true"]::after{content:"▴"}
 .btn-readmore:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(2,6,23,.08)}
 
-/* Fixed X close button */
+/* Stäng-knapp (X) för fullscreen */
 .fs-close{
   position:fixed; top:12px; right:12px; z-index:100000;
-  display:inline-grid; place-items:center;
-  width:44px; height:44px;
-  border:none; background:#000; color:#fff;
-  border-radius:999px; font-size:26px; line-height:1; font-weight:800;
+  width:44px; height:44px; border:none; border-radius:999px;
+  background:#000; color:#fff; font-size:26px; font-weight:800; cursor:pointer;
   box-shadow:0 8px 24px rgba(0,0,0,.35);
-  cursor:pointer;
 }
 .fs-close:hover{background:#1a1a1a}
 @media (min-width:1024px){
-  .fs-close{
-    top: 64px;
-    right: 64px;
-  }
+  .fs-close{ top:64px; right:64px; }
 }
+
+footer{border-top:1px solid var(--line);color:var(--sub);padding:16px 0;margin-top:20px}
