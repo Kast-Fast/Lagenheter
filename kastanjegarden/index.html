@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kastfast</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../images/favicon.png">
   <link rel="stylesheet" href="../styles.css">
-
 </head>
 <body>
   <header>
@@ -34,73 +32,108 @@
 
   <main class="wrap">
     <nav class="crumbs"><a href="../index.html">Hem</a> › <span>Kastanjegården</span></nav>
+
     <section>
       <h2>Våra lägenheter</h2>
       <div class="list">
-        
+
+        <!-- Lägenhet B (synlig) -->
         <a class="tile" href="./apt-B.html">
           <img src="../images/kastanjegarden/apt-B/1.jpg" alt="Kastanjegården B">
           <div class="meta">
             <div>
               <strong>Kastanjegården B</strong>
+
+              <!-- Status: behåll EN av dessa två -->
+              <div class="status">
+                <span class="dot ledig"></span><span class="status-text">Ledig</span>
+              </div>
+              <!--
+              <div class="status">
+                <span class="dot uthyrd"></span><span class="status-text">Uthyrd</span>
+              </div>
+              -->
+              <!-- /Status -->
             </div>
           </div>
         </a>
-        
 
-        <!-- Lägenhet C (återställ genom att ta bort kommentars-taggarna nedan) -->
+        <!-- Lägenhet C (utkommenterad – inga nästlade kommentarer här) -->
         <!--
         <a class="tile" href="./apt-C.html">
           <img src="../images/kastanjegarden/apt-C/1.jpg" alt="Kastanjegården C">
           <div class="meta">
             <div>
               <strong>Kastanjegården C</strong>
+              <div class="status">
+                <span class="dot ledig"></span><span class="status-text">Ledig</span>
+              </div>
             </div>
           </div>
         </a>
         -->
 
-        <!-- Lägenhet D (återställ genom att ta bort kommentars-taggarna nedan) -->
+        <!-- Lägenhet D (utkommenterad) -->
         <!--
         <a class="tile" href="./apt-D.html">
           <img src="../images/kastanjegarden/apt-D/1.jpg" alt="Kastanjegården D">
           <div class="meta">
             <div>
               <strong>Kastanjegården D</strong>
+              <div class="status">
+                <span class="dot ledig"></span><span class="status-text">Ledig</span>
+              </div>
             </div>
           </div>
         </a>
         -->
 
-        <!-- Lägenhet E (återställ genom att ta bort kommentars-taggarna nedan) -->
+        <!-- Lägenhet E (utkommenterad) -->
         <!--
         <a class="tile" href="./apt-E.html">
           <img src="../images/kastanjegarden/apt-E/1.jpg" alt="Kastanjegården E">
           <div class="meta">
             <div>
               <strong>Kastanjegården E</strong>
+              <div class="status">
+                <span class="dot ledig"></span><span class="status-text">Ledig</span>
+              </div>
             </div>
           </div>
         </a>
         -->
 
-        <!-- Lägenhet F (aktiv och synlig) -->
+        <!-- Lägenhet F (synlig) -->
         <a class="tile" href="./apt-F.html">
           <img src="../images/kastanjegarden/apt-F/1.jpg" alt="Kastanjegården F">
           <div class="meta">
             <div>
               <strong>Kastanjegården F</strong>
+
+              <!-- Status: behåll EN av dessa två -->
+            <!--  <div class="status">
+                <span class="dot ledig"></span><span class="status-text">Ledig</span>
+              </div>-->
+             
+              <div class="status">
+                <span class="dot uthyrd"></span><span class="status-text">Uthyrd</span>
+              </div>
+              
+              <!-- /Status -->
             </div>
           </div>
         </a>
 
-        <!-- Lägenhet G (återställ genom att ta bort kommentars-taggarna nedan) -->
+        <!-- Lägenhet G (utkommenterad) -->
         <!--
         <a class="tile" href="./apt-G.html">
           <img src="../images/kastanjegarden/apt-G/1.jpg" alt="Kastanjegården G">
           <div class="meta">
             <div>
               <strong>Kastanjegården G</strong>
+              <div class="status">
+                <span class="dot ledig"></span><span class="status-text">Ledig</span>
+              </div>
             </div>
           </div>
         </a>
@@ -109,6 +142,7 @@
       </div>
     </section>
   </main>
+
   <footer class="wrap small">© <span id="year"></span> KastFast</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../script.js"></script>
