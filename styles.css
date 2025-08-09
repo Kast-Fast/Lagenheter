@@ -58,45 +58,42 @@ p{margin:0 0 12px;color:var(--sub);line-height:1.75}
 .gallery a img{width:100%;height:110px;object-fit:cover;border:1px solid var(--line);border-radius:12px}
 @media(min-width:640px){.gallery a img{height:140px}}
 
-/* Fullscreen scrollable lightbox with pinch-to-zoom */
+/* Galleri thumbnails inside #galleri */
+#galleri .gallery img{
+  width:100%;
+  height:110px !important;
+  object-fit:cover;
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+@media(min-width:640px){
+  #galleri .gallery img{height:140px !important;}
+}
+
+/* Fullscreen scrollable lightbox */
 .fs-overlay{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;flex-direction:column;overflow-y:auto;z-index:9999}
 .fs-overlay.open{display:flex}
-.fs-header{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:rgba(0,0,0,.75)}
-
 .fs-body{padding:8px 8px 40px;display:grid;gap:8px}
 .fs-item{position:relative;overflow:hidden;border-radius:10px;background:#000}
-.fs-viewport{touch-action:none;transform-origin:0 0;will-change:transform}
-.fs-img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none;pointer-events:none}
+#fs-gallery .fs-item img{width:100%;height:auto;border-radius:10px;display:block}
 @media(min-width:768px){
   .fs-body{padding:16px 16px 60px;max-width:1200px;margin:0 auto}
 }
 footer{border-top:1px solid var(--line);color:var(--sub);padding:16px 0;margin-top:20px}
 
-/* Läs mer button – polished ghost pill */
+/* Läs mer button */
 .btn-readmore{
   margin-top:8px; display:inline-flex; align-items:center; gap:8px;
   font-weight:700; border:1px solid var(--line); background:#fff;
   padding:10px 14px; border-radius:999px; box-shadow:var(--shadow-sm);
   transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
+  font-family:inherit;
 }
 .btn-readmore::after{content:"▾"; font-size:14px; line-height:1}
 .btn-readmore[aria-expanded="true"]::after{content:"▴"}
-.btn-readmore:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(2,6,23,.08);}
+.btn-readmore:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(2,6,23,.08)}
 
-/* FS close 'X' button top-right */
-.fs-header{position:sticky;top:0;display:flex;justify-content:flex-end;align-items:center;padding:8px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
-
-.fs-close:hover{background:rgba(15,23,42,.75)}
-/* Readmore button font */
-.btn-readmore{font-family:inherit}
-
-
-
-
-
-.fs-close:hover{background:#222;}
-
-/* Fixed X close button (global) */
+/* Fixed X close button */
 .fs-close{
   position:fixed; top:12px; right:12px; z-index:100000;
   display:inline-grid; place-items:center;
@@ -107,55 +104,6 @@ footer{border-top:1px solid var(--line);color:var(--sub);padding:16px 0;margin-t
   cursor:pointer;
 }
 .fs-close:hover{background:#1a1a1a}
-/* Hero image just for start page */
-.hero-image {
-  position: relative;
-  width: 100%;
-  height: 60vh;
-  min-height: 320px;
-  overflow: hidden;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-}
-
-.hero-image .inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
-
-.hero-image h1 {
-  color: #fff;
-}
-
-.hero-image p {
-  color: #e2e8f0;
-  max-width: 900px;
-}
-
-
-
-
 @media (min-width:1024px){
   .fs-close{
     top: 64px;
