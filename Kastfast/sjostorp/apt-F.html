@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kastfast</title>
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="stylesheet" href="../styles.css">
+
+</head>
+<body>
+  <header><div class="wrap"><a href="../index.html" class="brand"><div style="display:flex;flex-direction:column;align-items:center"><img src="../images/logo.png" alt="KastFast logotyp"><span class="brand-text">KastFast</span></div></a></div></header>
+  <main class="wrap">
+    <nav class="crumbs"><a href="../index.html">Hem</a> › <a href="./index.html">Sjöstorp</a> › <span>Sjöstorp F</span></nav>
+
+    <section class="panel">
+      <h1>Sjöstorp F</h1>
+      <p>Lund/Sjöbo</p>
+    </section>
+
+    <section id="galleri" class="panel">
+      <h2>Galleri</h2>
+      <div class="gallery">
+        <a href="#"><img src="../images/sjostorp/apt-F/1.jpg" alt="Sjöstorp F foto 1"></a><a href="#"><img src="../images/sjostorp/apt-F/2.jpg" alt="Sjöstorp F foto 2"></a><a href="#"><img src="../images/sjostorp/apt-F/3.jpg" alt="Sjöstorp F foto 3"></a><a href="#"><img src="../images/sjostorp/apt-F/4.jpg" alt="Sjöstorp F foto 4"></a><a href="#"><img src="../images/sjostorp/apt-F/5.jpg" alt="Sjöstorp F foto 5"></a><a href="#"><img src="../images/sjostorp/apt-F/6.jpg" alt="Sjöstorp F foto 6"></a>
+      </div>
+    </section>
+
+    <section class="grid" style="grid-template-columns:1fr;gap:14px">
+      <div class="panel" data-readmore data-sentences="3">
+        <h2>Beskrivning</h2>
+        <p>Välplanerad och ljus lägenhet med social planlösning. Perfekt som förstaboende eller för den som söker ett bekvämt boende i {city}.</p>
+        <div class="more" hidden>
+          <p>Byt denna text mot korrekt beskrivning. Du kan lägga flera stycken här.</p>
+          <p>Tips: håll texten konkret; fakta hamnar under panelerna nedan.</p>
+        </div>
+        <button class="btn-readmore" type="button" aria-expanded="false">Läs mer</button>
+      </div>
+
+      <div class="panel">
+        <h2>Fakta</h2>
+        <p><strong>Hyra:</strong> —</p>
+        <p><strong>Antal rum:</strong> —</p>
+        <p><strong>Storlek:</strong> —</p>
+        <p><strong>Inflyttningsdatum:</strong> —</p>
+        <p><strong>Boendetyp:</strong> Hyresrätt</p>
+      </div>
+
+      <div class="panel">
+        <h2>Egenskaper</h2>
+        <p><strong>Våning i fastigheten:</strong> —</p>
+        <p><strong>Balkong/uteplats:</strong> —</p>
+        <p><strong>Hiss:</strong> —</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Hitta hit</h2>
+      <div style="aspect-ratio:16/9;border:1px solid var(--line);border-radius:12px;overflow:hidden">
+        <iframe title="Karta" width="100%" height="100%" style="border:0"
+          src="https://www.google.com/maps?q=55.680206,13.293794&output=embed&t=k" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fullscreen overlay root (shared) -->
+  <div id="fs-gallery" class="fs-overlay">
+    
+    <div class="fs-body"></div>
+  </div>
+
+  <footer class="wrap small">© <span id="year"></span> KastFast</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../script.js"></script>
+</body>
+</html>
