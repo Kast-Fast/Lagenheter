@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt – Kastfast</title>
+  <link rel="icon" href="./images/favicon.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between">
+    <a href="index.html" class="brand">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <img src="images/logo.png" alt="KastFast logotyp">
+        <span class="brand-text">KastFast</span>
+      </div>
+    </a>
+    <a class="btn-contact" href="./contact.html">LET'S TALK</a>
+  </div>
+</header>
+
+
+<main class="contact-wrap">
+  <section class="contact-hero">
+    <span class="badge">Kontakt</span>
+    <h1>Berätta vad du behöver. <span class="intro__accent">Känn lugnet.</span></h1>
+    <p>Vi återkommer snabbt. Fyll i formuläret eller mejla oss direkt.</p>
+  </section>
+
+  
+<section class="contact-wrap">
+  <div class="card-surface">
+    <h3>Kontakt</h3>
+    <p><strong>Telefon:</strong> <a href="tel:+46700000000">+46 70 000 00 00</a></p>
+    <p><strong>E‑post:</strong> <a href="mailto:info@example.com">info@example.com</a></p>
+    <p class="micro">Byt nummer/adress till dina riktiga uppgifter i contact.html.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-ft" style="border-top:1px solid var(--line);margin-top:24px">
+  <div class="wrap" style="padding:16px 0">© Kastfast</div>
+</footer>
+
+<script>
+// Mailto submit (enkelt och utan backend)
+document.getElementById('contact-form')?.addEventListener('submit', function(e){
+  e.preventDefault();
+  const fd = new FormData(this);
+  const subject = encodeURIComponent(fd.get('subject') || ('Förfrågan från ' + fd.get('name')));
+  const body = encodeURIComponent(`${fd.get('message')}
+
+${fd.get('name')} – ${fd.get('email')}`);
+  window.location.href = `mailto:info@example.com?subject=${subject}&body=${body}`;
+});
+</script>
+</body>
+</html>
