@@ -1,6 +1,6 @@
 /* Final release: System/Inter font, modern white UI */
 :root{ --ink:#141619; --ink-2:#2C2E3A; --navy:#050A44; --blue:#A78BFA; --muted-gray:#B3B4BD; 
-  --bg:#f1f1fb; --surface:#ffffff; --text:#0f172a; --sub:#475569; --line:#e5e7eb;
+  --bg:#fff; --surface:#ffffff; --text:#0f172a; --sub:#475569; --line:#e5e7eb;
   --brand:#2563eb; --brand-2:#0ea5e9; --radius:16px;
   --shadow-sm:0 2px 6px rgba(2,6,23,.06); --shadow:0 18px 50px rgba(2,6,23,.12);
 }
