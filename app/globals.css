@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ── New palette: warm cream + brass ─────────────────── */
+  --color-cream:       #F5F0E8;
+  --color-white:       #FFFFFF;
+  --color-charcoal:    #1C1917;
+  --color-earth:       #44403C;
+  --color-stone:       #78716C;
+  --color-sand:        #D6CFC4;
+  --color-sand-light:  #EDE8DF;
+  --color-brass:       #B8976A;
+  --color-brass-light: #D4B896;
+  --color-ledig:       #2D6A4F;
+  --color-uthyrd:      #8B5E00;
+
+  /* ── Legacy aliases (used in some components) ─────────── */
+  --color-background:  #F5F0E8;
+  --color-surface:     #FFFFFF;
+  --color-ink:         #1C1917;
+  --color-ink-2:       #44403C;
+  --color-subtle:      #78716C;
+  --color-border:      #D6CFC4;
+  --color-accent:      #B8976A;
+  --color-accent-dark: #8B6A3E;
+
+  /* ── Typography ──────────────────────────────────────── */
+  --font-sans:    var(--font-dm-sans);
+  --font-display: var(--font-syne);
+
+  /* ── Radius (restrained — we use smaller radii now) ─── */
+  --radius-sm:  4px;
+  --radius:     8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ─────────────────────────────────────────── */
+  --shadow-sm:  0 1px 4px rgba(28,25,23,.06);
+  --shadow:     0 8px 32px rgba(28,25,23,.10);
+  --shadow-lg:  0 24px 64px rgba(28,25,23,.14);
+}
+
+/* ── Reset & base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  line-height: 1.65;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-sand); border-radius: 3px; }
+
+/* ── Focus ─────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+}
+
+/* ── Defaults ──────────────────────────────────────────── */
+img, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
