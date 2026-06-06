@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fkastanjegarden\u002F[apt]","\u002Fsjostorp\u002F[apt]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
