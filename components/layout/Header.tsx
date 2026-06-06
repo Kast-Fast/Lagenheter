@@ -11,15 +11,7 @@ const navLinks = [
 ]
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     const fn = (e: KeyboardEvent) => { if (e.key === 'Escape') setMenuOpen(false) }
@@ -29,23 +21,7 @@ export default function Header() {
 
   return (
     <>
-      {/* Tall soft gradient behind header — only when not scrolled */}
-      {!scrolled && (
-        <div
-          aria-hidden
-          className="fixed top-0 inset-x-0 z-40 pointer-events-none h-48"
-          style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.12) 55%, transparent 100%)' }}
-        />
-      )}
-
-      <header
-        className={cn(
-          'fixed top-0 inset-x-0 z-50 transition-all duration-500 text-white',
-          scrolled
-            ? 'bg-[var(--color-charcoal)]/95 backdrop-blur-sm border-b border-white/10'
-            : 'bg-transparent'
-        )}
-      >
+      <header className="fixed top-0 inset-x-0 z-50 text-white bg-[var(--color-charcoal)] border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between h-[72px]">
 
           {/* Logo + Wordmark */}
