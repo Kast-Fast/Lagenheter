@@ -19,7 +19,7 @@ export const estates: Estate[] = [
     tagline: 'Staffanstorp · Lugnt område nära grönområden och service.',
     coverPhoto: '/images/kastanjegarden/cover.jpg',
     // Add .webm sources when available — swap via config, no code change needed
-    heroVideos: [{ src: '/videos/drone_shot.mp4', type: 'video/mp4' }],
+    heroVideos: [{ src: '/videos/hero_kastanjegarden.mp4', type: 'video/mp4' }],
     heroPoster: '/images/kastanjegarden/cover.jpg',
   },
   {
@@ -27,7 +27,7 @@ export const estates: Estate[] = [
     name: 'Sjöstorp',
     tagline: 'Lund · Mitt i lugnet med goda kommunikationer.',
     coverPhoto: '/images/sjostorp/cover.jpg',
-    heroVideos: [{ src: '/videos/drone_sjo.mp4', type: 'video/mp4' }],
+    heroVideos: [{ src: '/videos/hero_sjostorp.mp4', type: 'video/mp4' }],
     heroPoster: '/images/sjostorp/cover.jpg',
   },
 ]

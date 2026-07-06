@@ -8,7 +8,7 @@ import ScrollReveal from '@/components/sections/ScrollReveal'
 
 export const metadata: Metadata = { title: 'Bo nära naturen – KastFast' }
 
-const homeVideos = [{ src: '/videos/drone_shot.mp4', type: 'video/mp4' as const }]
+const homeVideos = [{ src: '/videos/hero_home.mp4', type: 'video/mp4' as const }]
 
 export default function HomePage() {
   return (
