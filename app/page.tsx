@@ -19,7 +19,7 @@ export default function HomePage() {
         {/* ── Hero ───────────────────────────────────────── */}
         <HeroVideo
           videos={homeVideos}
-          poster="/images/hero.png"
+          poster="/images/hero_home_poster.png"
           title="Bo nära naturen"
           titleAccent="Känn lugnet"
           subtitle="Två gårdar, olika karaktär – samma omtanke."
