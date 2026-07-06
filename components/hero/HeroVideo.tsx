@@ -78,7 +78,7 @@ export default function HeroVideo({
 
         <h1
           className="font-display font-semibold text-white leading-[1.05] tracking-[-0.02em] pb-2"
-          style={{ fontSize: 'clamp(3.5rem, 9vw, 9rem)' }}
+          style={{ fontSize: 'clamp(1.5rem, 9vw, 9rem)' }}
         >
           {title}
           {titleAccent && (

@@ -32,7 +32,7 @@ export default function SjostorpPage() {
 
         <div className="max-w-7xl mx-auto px-6 sm:px-10 pt-12 w-full">
           <nav className="flex items-center gap-3 text-xs text-[var(--color-stone)] mb-12" aria-label="Brödsmulor">
-            <Link href="/" className="hover:text-[var(--color-charcoal)] transition-colors">Hem</Link>
+            <Link scroll={false} href="/" className="hover:text-[var(--color-charcoal)] transition-colors">Hem</Link>
             <span className="text-[var(--color-sand)]">—</span>
             <span className="text-[var(--color-charcoal)]">Sjöstorp</span>
           </nav>
@@ -49,7 +49,7 @@ export default function SjostorpPage() {
           {apts.length === 0 ? (
             <div className="py-20 text-center">
               <p className="text-[var(--color-stone)]">Inga boenden tillgängliga just nu. Kontakta oss för mer information.</p>
-              <Link href="/kontakt" className="mt-6 inline-block text-sm font-medium border-b border-[var(--color-charcoal)] pb-0.5 hover:text-[var(--color-brass)] hover:border-[var(--color-brass)] transition-all">Kontakta oss →</Link>
+              <Link scroll={false} href="/kontakt" className="mt-6 inline-block text-sm font-medium border-b border-[var(--color-charcoal)] pb-0.5 hover:text-[var(--color-brass)] hover:border-[var(--color-brass)] transition-all">Kontakta oss →</Link>
             </div>
           ) : (
             <div className="divide-y divide-[var(--color-sand)]">
@@ -60,6 +60,7 @@ export default function SjostorpPage() {
                 return (
                   <ScrollReveal key={apt.slug} delay={i * 0.06}>
                     <Link
+                      scroll={false}
                       href={`/sjostorp/${apt.slug}`}
                       className="group flex flex-col sm:flex-row items-stretch gap-0 py-8 hover:bg-[var(--color-sand-light)] -mx-6 sm:-mx-10 px-6 sm:px-10 transition-colors duration-300"
                     >

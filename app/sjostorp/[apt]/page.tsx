@@ -49,7 +49,7 @@ export default async function SjostorpAptPage({ params }: { params: Promise<Para
           />
           <div className="absolute inset-x-0 bottom-0 max-w-7xl mx-auto px-6 sm:px-10 pb-14 sm:pb-20">
             <p className="text-white/50 text-[10px] font-semibold tracking-[0.2em] uppercase mb-4">Sjöstorp</p>
-            <h1 className="font-display font-semibold text-white leading-[0.92] tracking-[-0.02em]" style={{ fontSize: 'clamp(3rem,7vw,7rem)' }}>
+            <h1 className="font-display font-semibold text-white leading-[1.05] pb-2 tracking-[-0.02em]" style={{ fontSize: 'clamp(2.5rem,7vw,7rem)' }}>
               {apartment.name}
             </h1>
             <p className="text-white/60 text-sm mt-3">{apartment.city}</p>
@@ -58,7 +58,7 @@ export default async function SjostorpAptPage({ params }: { params: Promise<Para
 
         {/* ── Dark facts strip ────────────────────────── */}
         <div className="bg-[var(--color-charcoal)] border-b border-white/5">
-          <div className="max-w-7xl mx-auto px-6 sm:px-10 py-5 flex items-center gap-8 sm:gap-16 overflow-x-auto">
+          <div className="max-w-7xl mx-auto px-6 sm:px-10 py-5 flex flex-wrap items-center gap-x-8 gap-y-4 sm:gap-x-16">
             {rent && rent !== '—' && (
               <div className="flex-shrink-0">
                 <p className="text-[10px] text-white/35 uppercase tracking-widest mb-1">Hyra</p>
@@ -83,7 +83,7 @@ export default async function SjostorpAptPage({ params }: { params: Promise<Para
                 <p className="font-display text-lg sm:text-2xl font-medium text-white">{moveIn}</p>
               </div>
             )}
-            <div className="ml-auto flex-shrink-0">
+            <div className="sm:ml-auto flex-shrink-0">
               <AvailabilityBlock slug={slug} variant="strip" />
             </div>
           </div>
@@ -94,9 +94,9 @@ export default async function SjostorpAptPage({ params }: { params: Promise<Para
 
           {/* Breadcrumb */}
           <nav className="flex items-center gap-3 text-xs text-[var(--color-stone)]" aria-label="Brödsmulor">
-            <Link href="/" className="hover:text-[var(--color-charcoal)] transition-colors">Hem</Link>
+            <Link scroll={false} href="/" className="hover:text-[var(--color-charcoal)] transition-colors">Hem</Link>
             <span className="text-[var(--color-sand)]">—</span>
-            <Link href="/sjostorp" className="hover:text-[var(--color-charcoal)] transition-colors">Sjöstorp</Link>
+            <Link scroll={false} href="/sjostorp" className="hover:text-[var(--color-charcoal)] transition-colors">Sjöstorp</Link>
             <span className="text-[var(--color-sand)]">—</span>
             <span className="text-[var(--color-charcoal)]">{apartment.name}</span>
           </nav>

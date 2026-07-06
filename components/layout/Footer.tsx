@@ -19,9 +19,9 @@ export default function Footer() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.12em] text-white/40 mb-5">Gårdar</p>
             <nav className="flex flex-col gap-3">
-              <Link href="/kastanjegarden" className="text-sm text-white/70 hover:text-white transition-colors">Kastanjegården</Link>
-              <Link href="/sjostorp" className="text-sm text-white/70 hover:text-white transition-colors">Sjöstorp</Link>
-              <Link href="/kontakt" className="text-sm text-white/70 hover:text-white transition-colors">Kontakt</Link>
+              <Link scroll={false} href="/kastanjegarden" className="text-sm text-white/70 hover:text-white transition-colors">Kastanjegården</Link>
+              <Link scroll={false} href="/sjostorp" className="text-sm text-white/70 hover:text-white transition-colors">Sjöstorp</Link>
+              <Link scroll={false} href="/kontakt" className="text-sm text-white/70 hover:text-white transition-colors">Kontakt</Link>
             </nav>
           </div>
 

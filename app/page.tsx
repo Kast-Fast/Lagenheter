@@ -78,6 +78,7 @@ export default function HomePage() {
                 till hyresgäster vi litar på.
               </blockquote>
               <Link
+                scroll={false}
                 href="/kontakt"
                 className="group flex-shrink-0 flex items-center gap-3 text-sm font-medium text-white/60 border-b border-white/20 pb-0.5 hover:text-[var(--color-brass-light)] hover:border-[var(--color-brass-light)] transition-all duration-300 whitespace-nowrap"
               >
@@ -102,6 +103,7 @@ function EstatePanel({
   return (
     <ScrollReveal delay={delay}>
       <Link
+        scroll={false}
         href={href}
         className="group relative flex flex-col sm:flex-row items-stretch border border-[var(--color-sand)] hover:border-[var(--color-charcoal)] transition-colors duration-500 overflow-hidden"
       >

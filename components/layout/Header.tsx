@@ -26,6 +26,7 @@ export default function Header() {
 
           {/* Logo + Wordmark */}
           <Link
+            scroll={false}
             href="/"
             aria-label="KastFast hem"
             className="flex items-center gap-3"
@@ -42,6 +43,7 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((l) => (
               <Link
+                scroll={false}
                 key={l.href}
                 href={l.href}
                 className="text-sm tracking-wide !text-white/85 hover:!text-white transition-colors duration-300 relative group"
@@ -51,6 +53,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
+              scroll={false}
               href="/kontakt"
               className="text-sm font-medium border border-white/60 !text-white px-5 py-2.5 hover:border-white hover:bg-white/10 transition-all duration-300"
             >
@@ -98,6 +101,7 @@ export default function Header() {
           <nav className="flex flex-col px-8 py-10 gap-1">
             {navLinks.map((l) => (
               <Link
+                scroll={false}
                 key={l.href}
                 href={l.href}
                 onClick={() => setMenuOpen(false)}
@@ -107,6 +111,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
+              scroll={false}
               href="/kontakt"
               onClick={() => setMenuOpen(false)}
               className="mt-8 block text-center text-sm font-medium bg-[var(--color-charcoal)] text-white py-4 hover:bg-[var(--color-brass)] transition-colors duration-300"
