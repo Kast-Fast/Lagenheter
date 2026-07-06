@@ -3,12 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import HeroVideo from '@/components/hero/HeroVideo'
 import ScrollReveal from '@/components/sections/ScrollReveal'
 
 export const metadata: Metadata = { title: 'Bo nära naturen – KastFast' }
-
-const homeVideos = [{ src: '/videos/hero_home.mp4', type: 'video/mp4' as const }]
 
 export default function HomePage() {
   return (
@@ -17,13 +14,34 @@ export default function HomePage() {
       <main className="flex flex-col flex-1">
 
         {/* ── Hero ───────────────────────────────────────── */}
-        <HeroVideo
-          videos={homeVideos}
-          poster="/images/hero_home_poster.png"
-          title="Bo nära naturen"
-          titleAccent="Känn lugnet"
-          subtitle="Två gårdar, olika karaktär – samma omtanke."
-        />
+        <section className="relative w-full aspect-[16/9] min-h-[760px] max-h-[90vh] overflow-hidden -mt-[72px]">
+          <Image
+            src="/images/herohome.jpg"
+            alt="KastFast"
+            fill
+            className="object-cover"
+            style={{ objectPosition: 'center 10%' }}
+            priority
+            sizes="100vw"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to top, rgba(28,25,23,0.88) 0%, rgba(28,25,23,0.30) 45%, rgba(28,25,23,0.08) 100%)' }}
+          />
+          <div className="absolute inset-x-0 bottom-0 max-w-7xl mx-auto px-6 sm:px-10 pb-14 sm:pb-20">
+            <h1
+              className="font-display font-semibold text-white leading-[1.05] tracking-[-0.02em] pb-2"
+              style={{ fontSize: 'clamp(1.5rem, 9vw, 9rem)' }}
+            >
+              Bo nära naturen
+              <span className="block" style={{ color: 'var(--color-brass-light)' }}>Känn lugnet</span>
+            </h1>
+            <p className="mt-5 text-white/65 text-base sm:text-lg max-w-md leading-relaxed">
+              Två gårdar, olika karaktär – samma omtanke.
+            </p>
+          </div>
+        </section>
 
         {/* ── Intro strip ───────────────────────────────── */}
         <ScrollReveal id="gardens">
