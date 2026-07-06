@@ -68,9 +68,9 @@ export default function Header() {
             onClick={() => setMenuOpen((o) => !o)}
             className="md:hidden flex flex-col gap-[5px] w-8 items-end"
           >
-            <span className={cn('block h-px bg-white transition-all duration-300', menuOpen ? 'w-6 translate-y-[9px] rotate-45' : 'w-6')} />
+            <span className={cn('block h-px bg-white transition-all duration-300', menuOpen ? 'w-6 translate-y-[6px] rotate-45' : 'w-6')} />
             <span className={cn('block h-px bg-white transition-all duration-300', menuOpen ? 'opacity-0 w-6' : 'w-4')} />
-            <span className={cn('block h-px bg-white transition-all duration-300', menuOpen ? 'w-6 -translate-y-[9px] -rotate-45' : 'w-6')} />
+            <span className={cn('block h-px bg-white transition-all duration-300', menuOpen ? 'w-6 -translate-y-[6px] -rotate-45' : 'w-6')} />
           </button>
         </div>
       </header>
@@ -78,7 +78,7 @@ export default function Header() {
       {/* Mobile menu */}
       <div
         className={cn(
-          'fixed inset-0 z-40 md:hidden transition-all duration-500',
+          'fixed inset-0 z-[60] md:hidden transition-all duration-500',
           menuOpen ? 'visible' : 'invisible'
         )}
       >
@@ -114,7 +114,7 @@ export default function Header() {
               scroll={false}
               href="/kontakt"
               onClick={() => setMenuOpen(false)}
-              className="mt-8 block text-center text-sm font-medium bg-[var(--color-charcoal)] text-white py-4 hover:bg-[var(--color-brass)] transition-colors duration-300"
+              className="mt-8 block text-center text-sm font-medium border border-[var(--color-charcoal)] text-[var(--color-charcoal)] py-4 hover:bg-[var(--color-charcoal)] hover:text-white transition-colors duration-300"
             >
               Kontakta oss
             </Link>
