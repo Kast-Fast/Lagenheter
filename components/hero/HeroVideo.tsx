@@ -37,7 +37,7 @@ export default function HeroVideo({
   }, [])
 
   return (
-    <section className="relative w-full h-dvh min-h-[600px] overflow-hidden -mt-[72px]">
+    <section className="relative w-full h-dvh min-h-[600px] -mt-[72px]">
       {/* ── Background ───────────────────────────────────── */}
       {!reduced ? (
         <video
@@ -77,7 +77,7 @@ export default function HeroVideo({
         )}
 
         <h1
-          className="font-display font-semibold text-white leading-[0.92] tracking-[-0.02em]"
+          className="font-display font-semibold text-white leading-[1.05] tracking-[-0.02em] pb-2"
           style={{ fontSize: 'clamp(3.5rem, 9vw, 9rem)' }}
         >
           {title}
